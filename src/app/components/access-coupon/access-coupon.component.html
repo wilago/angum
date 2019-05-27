@@ -1,0 +1,28 @@
+<section class="access_coupon">
+  <h1>TU COPÓN DE ACCESO</h1>
+
+  <div class="container_coupon">
+    <div class="row">
+      <div class="col-6">
+        <div class="keyboard_cel">
+          <p>
+            Si deseas envío de cupón por mensaje de texto ingresa tu número de celular
+          </p>
+          <div style="text-align:center">
+            <input (input)="onInputChange($event)" class="input" value={{value}} placeholder="" />
+            <div class="simple-keyboard"></div>
+            <button mat-button routerLink="/show-coupon">Visualizar cupón en pantalla</button>
+          </div>
+        </div>
+      </div>
+      <div class="col-6">
+        <div class="image_fundacion">
+          <img src="https://picsum.photos/id/309/540/540" width="540px" alt="u">
+        </div>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<app-footer></app-footer>

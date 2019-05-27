@@ -1,69 +1,35 @@
 <section>
-  <h1>
-    ESCOGE TU PROYECTO
-  </h1>
-  <p>
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium suscipit earum aliquid cum ducimus illo
-    possimus molestias laudantium, numquam officia est iste totam, aperiam doloribus culpa iusto dicta. Inventore, nisi?
-  </p>
+
+  <div class="header">
+    <h1>EVOLFAI</h1>
+    <p>
+      En busca de una humanidad sostenible
+    </p>
+  </div>
+
+  <div class="conatiner">
+    <div class="row">
+      <div class="col-4">
+        <img src="/assets/images/video.png" alt="" width="350px" class="video">
+      </div>
+      <div class="col-8">
+        <p class="descripcion">
+          Por tu gran aporte tendrás acceso a Internet ZONAFAI; para que puedas conectar con más personas y más
+          propósitos
+        </p>
+        <div class="box">
+          <p>
+            Tu aporte entre 1.000 y 2.000: Acceso ZONAFAI por 1 hora
+          </p>
+          <p>
+            Tu aporte mayor a 2.000: Acceso ZONAFAI por 24 horas
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="btn_next">
+    <button mat-raised-button color="basic" (click)="onNext()">SIGUIENTE</button>
+  </div>
+
 </section>
-
-<div class="container">
-  <div class="row">
-    <div class="col-6">
-      <mat-card class="example-card">
-        <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" width="100px" alt="u">
-        <mat-card-content>
-          <p>
-            The Shiba Inu is the smallest of
-          </p>
-        </mat-card-content>
-        <mat-card-actions>
-          <button mat-button>CONTINUAR</button>
-        </mat-card-actions>
-      </mat-card>
-    </div>
-    <div class="col-6">
-      <mat-card class="example-card">
-        <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" width="100px" alt="u">
-        <mat-card-content>
-          <p>
-            The Shiba Inu is the smallest of
-          </p>
-        </mat-card-content>
-        <mat-card-actions>
-          <button mat-button>CONTINUAR</button>
-        </mat-card-actions>
-      </mat-card>
-    </div>
-  </div>
-</div>
-
-
-<mat-grid-list cols="2" rowHeight="200px">
-  <mat-grid-tile>
-
-
-  </mat-grid-tile>
-
-  <mat-grid-tile>
-
-  </mat-grid-tile>
-
-</mat-grid-list>
-
-
-
-<!-- <drag-scroll>
-  <img drag-scroll-item src="https://picsum.photos/300?image=10" />
-  <img drag-scroll-item src="https://picsum.photos/300?image=11" />
-  <img drag-scroll-item src="https://picsum.photos/300?image=12" />
-</drag-scroll>
- -->
-<!-- <owl-carousel [options]="mySlideOptions" [items]="images" [carouselClasses]="['owl-theme', 'sliding']">
-  <div class="item" *ngFor="let image of mySlideImages; let i = index">
-    <div>
-      <img src={{image}} />
-    </div>
-  </div>
-</owl-carousel> -->

@@ -1,0 +1,43 @@
+section {
+  margin-top: 15px;
+
+  h1 {
+    color: #585858;
+    padding: 10px 0px 15px;
+
+  }
+
+  p {
+    padding: 10px 50px;
+    letter-spacing: 1px;
+  }
+
+}
+
+p.descrip {
+  font-size: 1.6em;
+  color: #585858;
+}
+
+.example-card {
+  max-width: 300px;
+}
+
+.container {
+  text-align: center;
+
+  .row {
+    text-align: center;
+    width: 1200px;
+    margin: 0 auto;
+  }
+}
+
+mat-card-content {
+  p {
+
+    padding: 0px;
+  }
+
+  padding: 0px;
+}
