@@ -1,3 +1,4 @@
 export const environment = {
-  production: true
+  production: true,
+  endPointSocket: 'http://localhost:5000'
 };

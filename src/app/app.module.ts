@@ -12,6 +12,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { ProjectComponent } from './components/project/project.component';
 import { AccessCouponComponent } from './components/access-coupon/access-coupon.component';
 import { ShowCouponComponent } from './components/show-coupon/show-coupon.component';
+import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
+import { environment as env } from 'src/environments/environment';
+import { DocumentListComponent } from './components/document-list/document-list.component';
+import { DocumentComponent } from './components/document/document.component';
+import { EchoComponent } from './components/echo/echo.component';
+
+const config: SocketIoConfig = { url: env.endPointSocket, options: {} };
 
 // import { OwlModule } from 'ngx-owl-carousel';
 // import { DragScrollModule } from 'ngx-drag-scroll';
@@ -27,12 +34,16 @@ import { ShowCouponComponent } from './components/show-coupon/show-coupon.compon
     ProjectComponent,
     AccessCouponComponent,
     ShowCouponComponent,
+    DocumentListComponent,
+    DocumentComponent,
+    EchoComponent,
   ],
   imports: [
     BrowserModule,
     SharedModule,
     FlexLayoutModule,
-    AppRoutingModule
+    AppRoutingModule,
+    SocketIoModule.forRoot(config)
     // OwlModule,
     // DragScrollModule
   ],
