@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, LOCALE_ID } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { SharedModule } from './shared/shared.module';
@@ -17,8 +17,13 @@ import { environment as env } from 'src/environments/environment';
 import { DocumentListComponent } from './components/document-list/document-list.component';
 import { DocumentComponent } from './components/document/document.component';
 import { EchoComponent } from './components/echo/echo.component';
+import { registerLocaleData } from '@angular/common';
+
 
 const config: SocketIoConfig = { url: env.endPointSocket, options: {} };
+import localeCo from '@angular/common/locales/es-CO';
+
+registerLocaleData(localeCo, 'es');
 
 // import { OwlModule } from 'ngx-owl-carousel';
 // import { DragScrollModule } from 'ngx-drag-scroll';
@@ -47,7 +52,7 @@ const config: SocketIoConfig = { url: env.endPointSocket, options: {} };
     // OwlModule,
     // DragScrollModule
   ],
-  providers: [],
+  providers: [{ provide: LOCALE_ID, useValue: 'es-CO' }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

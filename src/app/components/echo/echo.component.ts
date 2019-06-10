@@ -1,3 +1,4 @@
+
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { EchoServiceService } from 'src/app/services/echo-service.service';
 import { Observable, Subscription } from 'rxjs';
@@ -19,12 +20,15 @@ export class EchoComponent implements OnInit, OnDestroy {
   constructor(private echoServiceService: EchoServiceService) { }
 
   ngOnInit() {
-    this.msgSub = this.echoServiceService.currentMsg.subscribe(msg => this.currentMsg = msg);
-
     this.msgSub = this.echoServiceService.currentMsg.pipe(
-      startWith('Select an existing document or create a new one to get started')
-    ).subscribe(msg => this.currentMsg = msg);
+      startWith('Espere')
+    ).subscribe((msg: any) => {
+      this.currentMsg = msg;
+      setTimeout(() => {
+        this.echoServiceService.sendMessage('hola_echo');
+      }, 2500);
 
+    });
   }
 
   public onSendMsg() {

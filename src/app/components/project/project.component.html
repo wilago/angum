@@ -38,11 +38,11 @@
 
         <div class="list_amount">
           <mat-chip-list>
-            <mat-chip color="primary" selected>$ 200</mat-chip>
+            <mat-chip color="primary" selected>$ {{coin | number : '3.0-0': 'es'}}</mat-chip>
             <p>ÚLTIMA MONEDA</p>
             <mat-chip color="accent" selected>$ 2.000</mat-chip>
             <p>ÚLTIMO BILLETE</p>
-            <mat-chip color="warn" selected> $ 2.200</mat-chip>
+            <mat-chip color="warn" selected> $ {{total | number : '3.0-0': 'es'}} </mat-chip>
             <p>TOTAL</p>
 
           </mat-chip-list>
