@@ -39,7 +39,7 @@ export class ProjectComponent implements OnInit, OnDestroy {
       console.log('total: ', this.total);
 
 
-      if (this.counter > 10) {
+      if (this.counter > 5) {
         this.msgSub.unsubscribe();
       }
 
