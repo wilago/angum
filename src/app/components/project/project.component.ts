@@ -13,48 +13,63 @@ export class ProjectComponent implements OnInit, OnDestroy {
 
   msg: Observable<string[]>;
   currentCoin: string;
+  currentBill: string;
   coin: number;
-  private msgSub: Subscription;
-  counter = 0;
+  bill: number;
+  private coinSub: Subscription;
+  private billSub: Subscription;
+  totalCoins = 0;
   total = 0;
+  totalBills = 0;
 
   constructor(private socketService: SocketService) { }
 
   ngOnInit() {
-
-    this.msgSub = this.socketService.currentCoin.pipe(
-      startWith('Espere')
-    ).subscribe((coin: any) => {
-      this.currentCoin = coin;
-      console.log('msg: ', coin);
-      this.coin = coin.coin;
-
-      console.log('msg_coin: ', this.coin);
-      if (this.coin !== undefined) {
-        this.total = this.coin + this.total;
-      }
-
-      // this.total = Number(this.total + Number(this.coin));
-      this.counter++;
-      console.log('total: ', this.total);
-
-
-      if (this.counter > 5) {
-        this.msgSub.unsubscribe();
-      }
-
-      setTimeout(() => {
-        this.socketService.sendMessage('hola_echo');
-      }, 3000);
-
-    });
-
     this.socketService.startMonedero();
+    this.coinListener();
+
+    this.socketService.startBill();
+    this.billListener();
+  }
+
+  coinListener() {
+    this.coinSub = this.socketService.currentCoin
+      .subscribe((coin: any) => {
+        this.currentCoin = coin;
+        console.log('coin: ', coin);
+        this.coin = coin.coin;
+
+        if (this.coin !== undefined) {
+          this.totalCoins = this.coin + this.totalCoins;
+        }
+
+        console.log('total_coins: ', this.totalCoins);
+        this.total = this.totalCoins;
+      });
+  }
+
+
+  billListener() {
+    this.billSub = this.socketService.currentBill
+      .subscribe((bill: any) => {
+        this.currentBill = bill;
+        console.log('bill: ', bill);
+        this.bill = bill.bill;
+
+        if (this.bill !== undefined) {
+          this.totalBills = this.bill + this.totalBills;
+        }
+
+        console.log('totalBills: ', this.totalBills);
+        this.total = this.totalBills;
+
+      });
   }
 
   ngOnDestroy() {
     console.log('ngOnDestroy');
-    this.msgSub.unsubscribe();
+    this.coinSub.unsubscribe();
+    this.billSub.unsubscribe();
   }
 
 }

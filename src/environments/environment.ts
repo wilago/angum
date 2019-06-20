@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   // endPointSocket: 'http://localhost:5000'
-  endPointSocket: 'http://192.168.0.21:5000'
+  endPointSocket: 'http://192.168.0.23:5000'
 };
 
 /*
