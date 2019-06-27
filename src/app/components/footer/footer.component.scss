@@ -1,12 +1,11 @@
 footer {
   position: absolute;
   bottom: 0px;
-  top: 690px;
-  height: 90px;
-  margin-top: 20px;
-  // background-color: rgb(44, 63, 70);
+  top: 407px;
+  height: 65px;
+  margin-top: 8px;
   background-color: #003748;
-  width: 1280px;
+  width: 800px;
   color: white;
 
   mat-grid-list {
@@ -14,14 +13,15 @@ footer {
     mat-grid-tile {
       mat-icon {
         margin-right: 25px;
-        font-size: 40px;
+        font-size: 30px;
         margin-bottom: 23px;
       }
 
       p {
-        margin-left: 10px;
+        margin-left: 0px;
         padding: 0px;
-        line-height: 21px;
+        line-height: 15px;
+        font-size: 11px;
       }
     }
   }

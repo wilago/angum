@@ -1,11 +1,17 @@
 section {
-  margin-top: 15px;
+  margin-top: 5px;
 
-  h1 {
+  h1, h2 {
     color: #585858;
-    padding: 10px 0px 15px;
-
+    padding: 1px 0px 1px;
+    font-size: 1.5em;
   }
+
+  h2 {
+    color: #585858;
+    font-size: 1.2em;
+  }
+
 
   p {
     padding: 10px 50px;
@@ -13,19 +19,19 @@ section {
   }
 
   .box_data_project {
-    min-height: 340px;
+    min-height: 200px;
     background-color: #f6f7ff;
-    padding: 30px 10px 19px;
-    border-radius: 20px;
+    padding: 0px 2px 5px;
+    border-radius: 18px;
     border: 1px solid #585858;
 
     ul {
       padding-left: 10px;
       li {
         list-style-type: none;
-        margin: 40px 0px;
+        margin: 20px 0px;
         text-align: left;
-        font-size: 1.6em;
+        font-size: 1.1em;
         color: #585858;
       }
     }
@@ -42,28 +48,28 @@ section {
 
   mat-chip-list {
     mat-chip {
-      min-width: 180px;
-      min-height: 40px;
+      min-width: 145px;
+      min-height: 18px;
       text-align: center;
-      font-size: 1.6em;
+      font-size: 1em;
       font-family: 'Roboto Condensed', sans-serif;
-      padding: 25px 17px;
+      padding: 18px 11px;
     }
 
     p {
-      font-size: 1.3em;
+      font-size: 1em;
       font-weight: bold;
       color: #585858;
-      padding: 10px 10px;
+      padding: 5px 3px;
     }
   }
 
   .content_amount {
     button {
-      margin-top: 75px;
-      min-width: 130px;
-      padding: 10px 50px;
-      font-size: 1.5em;
+      margin-top: 15px;
+      min-width: 80px;
+      padding: 4px 17px;
+      font-size: 1em;
       font-weight: bold;
       font-family: 'Roboto Condensed', sans-serif;
       border: 1px solid #585858;

@@ -1,43 +1,54 @@
 section {
-  margin-top: 15px;
+  margin-top: 6px;
 
   h1 {
     color: #585858;
-    padding: 10px 0px 15px;
-
+    padding: 0px 0px 0px;
+    font-size: 1.2em;
   }
 
-  p {
-    padding: 10px 50px;
-    letter-spacing: 1px;
-  }
+  p {}
 
 }
 
 p.descrip {
-  font-size: 1.6em;
   color: #585858;
+  letter-spacing: 1px;
+  font-size: 1.2em;
+  width: 500px;
+  margin: 0px auto;
+  padding: 10px 0px;
 }
 
 .example-card {
-  max-width: 300px;
+  max-width: 200px;
 }
 
 .container {
   text-align: center;
+  width: 600px;
+  margin: 0 auto;
 
   .row {
     text-align: center;
-    width: 1200px;
-    margin: 0 auto;
+
   }
 }
 
 mat-card-content {
-  p {
+  padding: 0px;
+  margin: 0px;
 
+  p {
     padding: 0px;
+    margin: 0px;
   }
 
   padding: 0px;
+
+  mat-card-actions {
+    button {
+      margin: 0px;
+    }
+  }
 }
