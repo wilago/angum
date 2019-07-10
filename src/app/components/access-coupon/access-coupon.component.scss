@@ -1,17 +1,17 @@
 .access_coupon {
   h1 {
     color: #585858;
-    padding: 27px 0px 15px;
+    padding: 20px 0px 5px;
     margin: 0px;
-    font-size: 2.2em;
+    font-size: 1.2em;
   }
 
 }
 
 input {
   width: 72%;
-  height: 60px;
-  padding: 20px;
+  height: 30px;
+  padding:  5px;
   font-size: 30px;
   border: 2px solid #ccc;
   border-radius: 10px;
@@ -37,26 +37,37 @@ input {
 .container_coupon {
     width: 85%;
     margin: auto 0;
-    padding: 15px;
+    padding: 2px 15px;
+}
+
+.simple-keyboard.hg-theme-default.hg-layout-numeric .hg-button {
+  width: 27% !important;
+  height: 41px !important;
+  -webkit-box-align: center;
+  align-items: center;
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-pack: center;
+  justify-content: center;
 }
 
 .keyboard_cel {
   border: 1px solid #cccccc;
-  min-height: 530px;
+  min-height: 322px;
   padding: 10px 10px;
   border-radius: 10px;
   margin-left: 40px;
 
   p {
-    font-size: 1.6em;
+    font-size: 0.8em;
     color: #585858;
   }
 
   button {
-    margin-top: 20px;
+    margin-top: 4px;
     min-width: 120px;
-    padding: 8px 26px;
-    font-size: 1.3em;
+    padding: 1px 20px;
+    font-size: 0.8em;
     font-weight: bold;
     font-family: 'Roboto Condensed', sans-serif;
     border: 1px solid #01DF01;
