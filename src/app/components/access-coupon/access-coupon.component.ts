@@ -1,6 +1,10 @@
 import { Component, OnInit, AfterViewInit, ViewEncapsulation } from '@angular/core';
 import Keyboard from 'simple-keyboard';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
+import { ApiService } from 'src/app/services/api.service';
+
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { LoaderComponent } from '../loader/loader.component';
 
 
 @Component({
@@ -15,8 +19,19 @@ import { Router } from '@angular/router';
 export class AccessCouponComponent implements AfterViewInit {
   value = '';
   keyboard: Keyboard;
+  dialogRef: any;
 
-  constructor(private router: Router) { }
+  constructor(
+    private router: Router,
+    private route: ActivatedRoute,
+    private apiService: ApiService,
+    public dialog: MatDialog) {
+
+    this.route.queryParams.subscribe((params: any) => {
+      console.log('params: ', params);
+    });
+
+  }
 
   ngAfterViewInit() {
     this.keyboard = new Keyboard({
@@ -51,19 +66,43 @@ export class AccessCouponComponent implements AfterViewInit {
     console.log('Button pressed: ', button);
     if (button === '{enter}') {
       if (this.value.length >= 10) {
-        this.router.navigate(['/show-coupon']);
+        this.getCode();
       } else {
         alert('Completa el número de teléfono');
       }
     }
   }
 
+  private onShowLoader() {
+    this.dialogRef = this.dialog.open(LoaderComponent, {
+      height: '200px',
+      width: '150px',
+    });
+  }
+
   onInputChange = (event: any) => {
     this.keyboard.setInput(event.target.value);
   }
 
+  private getCode() {
+    this.onShowLoader();
+    this.apiService.getCode().subscribe((code: string) => {
+      console.log('Response_code: ', code);
+      this.dialogRef.close();
+      this.router.navigate(['/show-coupon']);
+    });
+  }
+
   public onNext() {
-    this.router.navigate(['/show-coupon']);
+    console.log('Next');
+    // this.router.navigate(['/show-coupon']);
+  }
+
+  public onGoToShowcupon() {
+    this.apiService.getCode().subscribe((code: string) => {
+      console.log('Response_code: ', code);
+      this.router.navigate(['/show-coupon']);
+    });
   }
 
 

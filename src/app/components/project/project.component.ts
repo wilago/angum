@@ -1,7 +1,8 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { SocketService } from 'src/app/services/socket.service';
 import { Observable, Subscription } from 'rxjs';
-import { startWith } from 'rxjs/operators';
+import { Router } from '@angular/router';
+
 
 
 @Component({
@@ -22,7 +23,10 @@ export class ProjectComponent implements OnInit, OnDestroy {
   total = 0;
   totalBills = 0;
 
-  constructor(private socketService: SocketService) { }
+  constructor(
+    private socketService: SocketService,
+    private router: Router
+  ) { }
 
   ngOnInit() {
     this.socketService.startMonedero();
@@ -70,6 +74,24 @@ export class ProjectComponent implements OnInit, OnDestroy {
     console.log('ngOnDestroy');
     this.coinSub.unsubscribe();
     this.billSub.unsubscribe();
+  }
+
+  public onGoToInsertPhonenumber() {
+    console.log('Go to insert phone number');
+    let valor = this.totalBills + this.totalCoins;
+    valor = 500;
+    let tiempo = 0;
+    if (valor < 1000) {
+      tiempo = 0;
+    } else if (valor >= 1000 && valor <= 2000) {
+      tiempo = 3600;
+    } else {
+      tiempo = 86400;
+    }
+
+    this.router.navigate(['access-coupon'],
+      // { queryParams: { valor_total: Number(valor), tiempo_total: tiempo }, skipLocationChange: true });
+      { queryParams: { valor_total: Number(valor), tiempo_total: tiempo }});
   }
 
 }

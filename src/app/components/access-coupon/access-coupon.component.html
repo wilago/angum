@@ -11,7 +11,7 @@
           <div style="text-align:center">
             <input (input)="onInputChange($event)" class="input" value={{value}} placeholder="" />
             <div class="simple-keyboard"></div>
-            <button mat-button routerLink="/show-coupon">Visualizar cupón en pantalla</button>
+            <button mat-button routerLink="/show-coupon" (click)="onGoToShowcupon()">Visualizar cupón en pantalla</button>
           </div>
         </div>
       </div>

@@ -18,10 +18,16 @@ import { DocumentListComponent } from './components/document-list/document-list.
 import { DocumentComponent } from './components/document/document.component';
 import { EchoComponent } from './components/echo/echo.component';
 import { registerLocaleData } from '@angular/common';
-
+import { HttpClientModule } from '@angular/common/http';
+import { ApiService } from './services/api.service';
+import { MatDialogModule } from '@angular/material/dialog';
 
 const config: SocketIoConfig = { url: env.endPointSocket, options: {} };
 import localeCo from '@angular/common/locales/es-CO';
+import { LoaderComponent } from './components/loader/loader.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+
 
 registerLocaleData(localeCo, 'es');
 
@@ -42,17 +48,23 @@ registerLocaleData(localeCo, 'es');
     DocumentListComponent,
     DocumentComponent,
     EchoComponent,
+    LoaderComponent
   ],
   imports: [
     BrowserModule,
     SharedModule,
     FlexLayoutModule,
     AppRoutingModule,
+    HttpClientModule,
+    MatDialogModule,
+    BrowserAnimationsModule,
+    MatProgressSpinnerModule,
     SocketIoModule.forRoot(config)
     // OwlModule,
     // DragScrollModule
   ],
-  providers: [{ provide: LOCALE_ID, useValue: 'es-CO' }],
+  entryComponents: [LoaderComponent],
+  providers: [ApiService, { provide: LOCALE_ID, useValue: 'es-CO' }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

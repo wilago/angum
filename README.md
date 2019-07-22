@@ -27,3 +27,23 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
 
 ng build --prod --base-href "https://riverajefer.github.io/webm/"
+
+
+http://159.89.25.124/zonafai/generacion_cupun_sms_app_prepago_vending_V1/generacion_cupun_sms_app_prepago_vending_V1.php?
+user=vending1&
+perfil=3M&
+simultaneos=1&
+tiempo=3600&
+valor=500&
+celular=3117256441
+
+Return: code
+
+http://wifi.zonafai.com/login?username='+codigo
+
+<!-- 
+
+http://159.89.25.124/zonafai/generacion_cupun_sms_app_prepago_vending_V1/generacion_cupun_sms_app_prepago_vending_V1.php?user=vending1&perfil=3M&simultaneos=1&tiempo=3600&valor=500&celular=3117256441
+
+
+ -->
