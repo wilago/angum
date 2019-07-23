@@ -27,6 +27,7 @@ import localeCo from '@angular/common/locales/es-CO';
 import { LoaderComponent } from './components/loader/loader.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { QRCodeModule } from 'angularx-qrcode';
 
 
 registerLocaleData(localeCo, 'es');
@@ -59,6 +60,7 @@ registerLocaleData(localeCo, 'es');
     MatDialogModule,
     BrowserAnimationsModule,
     MatProgressSpinnerModule,
+    QRCodeModule,
     SocketIoModule.forRoot(config)
     // OwlModule,
     // DragScrollModule

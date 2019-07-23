@@ -6,8 +6,8 @@ export const environment = {
   production: false,
   // endPointSocket: 'http://localhost:5000'
   endPointSocket: 'http://192.168.0.23:5000',
-
-  paramsGetCode: {
+  endPointConnect: 'http://wifi.zonafai.com/',
+  paramsUrl: {
     endPoint: 'http://159.89.25.124/zonafai/generacion_cupun_sms_app_prepago_vending_V1/generacion_cupun_sms_app_prepago_vending_V1.php?',
     userVendig: 'vending1',
     perfil: '3M',

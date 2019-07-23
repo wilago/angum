@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-show-coupon',
@@ -6,10 +7,20 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./show-coupon.component.scss']
 })
 export class ShowCouponComponent implements OnInit {
+  urlQR = '';
 
-  constructor() { }
+  constructor(
+    private router: Router,
+    private route: ActivatedRoute) {
 
-  ngOnInit() {
+    this.route.queryParams
+      .subscribe((params: any) => {
+        console.log('params_generate url: ', params);
+        this.urlQR = params.url;
+      });
+
   }
+
+  ngOnInit() { }
 
 }

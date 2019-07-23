@@ -5,6 +5,13 @@ import { ApiService } from 'src/app/services/api.service';
 
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { LoaderComponent } from '../loader/loader.component';
+import { environment as env } from 'src/environments/environment';
+
+interface ParametrosGetCode {
+  tiempo: number;
+  valor: number;
+  celular: any;
+}
 
 
 @Component({
@@ -17,9 +24,10 @@ import { LoaderComponent } from '../loader/loader.component';
   ]
 })
 export class AccessCouponComponent implements AfterViewInit {
-  value = '';
+  value: any;
   keyboard: Keyboard;
   dialogRef: any;
+  parametrosGetCode: ParametrosGetCode;
 
   constructor(
     private router: Router,
@@ -29,6 +37,11 @@ export class AccessCouponComponent implements AfterViewInit {
 
     this.route.queryParams.subscribe((params: any) => {
       console.log('params: ', params);
+      this.parametrosGetCode = {
+        celular: 0,
+        valor: params.valor_total,
+        tiempo: params.tiempo_total
+      };
     });
 
   }
@@ -56,14 +69,14 @@ export class AccessCouponComponent implements AfterViewInit {
   }
 
   onChange = (input: string) => {
-    console.log('Input changed: ', input);
+    // console.log('Input changed: ', input);
     if (input.length <= 10) {
       this.value = input;
     }
   }
 
   onKeyPress = (button: string) => {
-    console.log('Button pressed: ', button);
+    // console.log('Button pressed: ', button);
     if (button === '{enter}') {
       if (this.value.length >= 10) {
         this.getCode();
@@ -84,27 +97,26 @@ export class AccessCouponComponent implements AfterViewInit {
     this.keyboard.setInput(event.target.value);
   }
 
-  private getCode() {
-    this.onShowLoader();
-    this.apiService.getCode().subscribe((code: string) => {
-      console.log('Response_code: ', code);
-      this.dialogRef.close();
-      this.router.navigate(['/show-coupon']);
-    });
-  }
-
-  public onNext() {
-    console.log('Next');
-    // this.router.navigate(['/show-coupon']);
-  }
-
   public onGoToShowcupon() {
-    this.apiService.getCode().subscribe((code: string) => {
-      console.log('Response_code: ', code);
-      this.router.navigate(['/show-coupon']);
-    });
+    this.getCode();
   }
 
+  private getCode() {
+    console.log('this.value: ', this.value);
 
+    this.parametrosGetCode.celular = Number(this.value);
+    console.log('parametrosGetCode: ', this.parametrosGetCode);
+
+    this.onShowLoader();
+    this.apiService.getCode(this.parametrosGetCode)
+      .subscribe((code: any) => {
+        console.log('Response_code: ', code);
+
+        const urlCode = `${env.endPointConnect}login?username=${code.code}`;
+
+        this.dialogRef.close();
+        this.router.navigate(['/show-coupon'], { queryParams: { url: urlCode } });
+      });
+  }
 
 }

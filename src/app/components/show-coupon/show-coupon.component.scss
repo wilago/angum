@@ -5,12 +5,13 @@ h1 {
   font-size: 1.5em;
 }
 .code_qr {
+  text-align: left;
 
   button {
-    margin-top: 40px;
+    margin-top: 10px;
     min-width: 100px;
-    padding: 5px 50px;
-    font-size: 1em;
+    padding: 0px 50px;
+    font-size: 0.9em;
     font-weight: bold;
     font-family: 'Roboto Condensed', sans-serif;
     border: 1px solid #585858;
@@ -24,6 +25,9 @@ h1 {
     font-size: 1.2em;
     color: #585858;
     margin: 0px 0px;
+  }
+  h3 {
+    margin-top: 10px;
   }
 }
 
